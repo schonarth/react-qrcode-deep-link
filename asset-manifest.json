@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-qrcode-deep-link/static/css/main.e6c13ad2.css",
-    "main.js": "/react-qrcode-deep-link/static/js/main.1cfe9368.js",
+    "main.js": "/react-qrcode-deep-link/static/js/main.37dae4b6.js",
     "static/js/402.ad663af3.chunk.js": "/react-qrcode-deep-link/static/js/402.ad663af3.chunk.js",
     "index.html": "/react-qrcode-deep-link/index.html",
     "main.e6c13ad2.css.map": "/react-qrcode-deep-link/static/css/main.e6c13ad2.css.map",
-    "main.1cfe9368.js.map": "/react-qrcode-deep-link/static/js/main.1cfe9368.js.map",
+    "main.37dae4b6.js.map": "/react-qrcode-deep-link/static/js/main.37dae4b6.js.map",
     "402.ad663af3.chunk.js.map": "/react-qrcode-deep-link/static/js/402.ad663af3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.1cfe9368.js"
+    "static/js/main.37dae4b6.js"
   ]
 }
