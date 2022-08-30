@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { QRCode } from 'react-qrcode-logo';
 
-const Generator = ({ protocol, host, port, paramName, theme }) => {
+const Generator = ({ protocol, host, path, port, paramName, theme }) => {
   const [query, setQuery] = useState('');
 
   return (
@@ -45,7 +45,7 @@ const Generator = ({ protocol, host, port, paramName, theme }) => {
         <div>
           {query && (
             <QRCode
-              value={`${protocol}//${host}:${port}?${paramName}=${query}`}
+              value={`${protocol}//${host}:${port}/${path}?${paramName}=${query}`}
               size={256}
               logoImage={theme?.logo}
               fgColor={theme?.fgColor}
