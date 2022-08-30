@@ -1,0 +1,6 @@
+{
+  "fgColor": "#202028",
+  "bgColor": "#ffffff",
+  "logo": "./logo-react.png",
+  "qrStyle": "dots"
+}

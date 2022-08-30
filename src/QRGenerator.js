@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { QRCode } from 'react-qrcode-logo';
-import { isAndroid, isIOS } from 'react-device-detect';
 
-const Generator = () => {
+const Generator = ({ protocol, host, port, paramName, theme }) => {
   const [query, setQuery] = useState('');
 
   return (
@@ -46,11 +45,12 @@ const Generator = () => {
         <div>
           {query && (
             <QRCode
-              value={`http://192.168.15.94:3000?query=${query}`}
+              value={`${protocol}//${host}:${port}?${paramName}=${query}`}
               size={256}
-              logoImage="./logo192.png"
-              fgColor="#202028"
-              eyeColor={{ outer: '#202028', inner: '#ea9600' }}
+              logoImage={theme?.logo}
+              fgColor={theme?.fgColor}
+              bgColor={theme?.bgColor}
+              eyeColor={theme?.eyeColor}
               removeQrCodeBehindLogo={true}
               ecLevel="Q"
             />

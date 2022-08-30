@@ -1,0 +1,6 @@
+{
+  "fgColor": "#202028",
+  "bgColor": "#ffffff",
+  "logo": "./logo-struxhub.png",
+  "eyeColor": { "outer": "#202028", "inner": "#ea9600" }
+}
