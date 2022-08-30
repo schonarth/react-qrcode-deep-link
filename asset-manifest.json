@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-qrcode-deep-link/static/css/main.e6c13ad2.css",
+    "main.js": "/react-qrcode-deep-link/static/js/main.edeef141.js",
+    "static/js/402.ad663af3.chunk.js": "/react-qrcode-deep-link/static/js/402.ad663af3.chunk.js",
+    "index.html": "/react-qrcode-deep-link/index.html",
+    "main.e6c13ad2.css.map": "/react-qrcode-deep-link/static/css/main.e6c13ad2.css.map",
+    "main.edeef141.js.map": "/react-qrcode-deep-link/static/js/main.edeef141.js.map",
+    "402.ad663af3.chunk.js.map": "/react-qrcode-deep-link/static/js/402.ad663af3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.edeef141.js"
+  ]
+}
