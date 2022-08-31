@@ -4,7 +4,7 @@ import Generator from './QRGenerator';
 
 const protocol = window.location.protocol;
 const host = window.location.hostname;
-const port = window.location.port || 80;
+const port = window.location.port;
 const pathName = window.location.pathname;
 const paramName = 'query';
 
