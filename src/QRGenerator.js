@@ -51,8 +51,8 @@ const Generator = ({ protocol, host, path, port, paramName, theme }) => {
             </li>
           </ul>
         </div>
-        <div>
-          {query && (
+        {query && (
+          <div>
             <QRCode
               value={url}
               size={256}
@@ -64,8 +64,9 @@ const Generator = ({ protocol, host, path, port, paramName, theme }) => {
               removeQrCodeBehindLogo={true}
               ecLevel="Q"
             />
-          )}
-        </div>
+            <p>Now scan it with your phone's camera app</p>
+          </div>
+        )}
       </div>
     </div>
   );

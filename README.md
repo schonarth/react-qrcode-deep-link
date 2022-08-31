@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# QR Code Deep Link Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This proof-of-concept (POC) aims to demonstrate both how to generate custom QR codes and how to use those as deep-links into your mobile application.
 
-## Available Scripts
+For the current exercise, we will deep-link into a given **Instagram** profile.
 
-In the project directory, you can run:
+You can see it working at https://schonarth.github.io/react-qrcode-deep-link/
 
-### `npm start`
+## The Moving Parts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This contraption is comprised of the following elements:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **The QR Code Generator**, where you create a URL with all the parameters you want to eventually pass to the app
+* **The Loader**, which sits at the URL to which the QR code points to, and will decide what to do with it.
+* **The mobile application**, which needs to be able to receive deep-link parameters
 
-### `npm test`
+### The QR Code Generator
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A QR code is essentially a barcode on steroids. Whereas barcodes could only represent numbers, QR codes can store any arbitrarily long and complex string of text as needed. It's also error-resistant with redundancy included, so damaged or partially covered up codes can usually be read successfully.
 
-### `npm run build`
+QR codes are most often used for URLs, but you can use them for pretty much anything.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| ![Lorem ipsum dolor sit amet...](./public/lipsum.png)
+|:--:|
+| As plain text
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| ![.eslintrc](./public/eslintrc.png)
+|:--:|
+| As code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Storing plain data as above allows IT devices to get information about a physical parcel with no connection requirements, for instance (just beware of sensitive information).
 
-### `npm run eject`
+You can also customize the QR code with fancy visuals. [This is a simple custom theme example](https://schonarth.github.io/react-qrcode-deep-link/?theme=react) for the same app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Modern phones' cameras can read most QR codes and, conveniently, they can also identify and follow URLs. Which leads us to the second moving part of our little contraption...
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### The Loader
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In order to create a deep link, you need to both generate QR codes with URLs and a **website** where these URLs point to. Bear in mind, they aren't pointing directly to the mobile app. The first step is a regular page, which can be your main web app or a separate, smaller one just for this purpose.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This web app needs to be able to:
 
-## Learn More
+* Receive the URL parameters and know what to do with them;
+* Open the mobile app if the page is accessed from such a device **and** the app is installed;
+* Send users to the appropriate mobile app store (Apple's or Google's) if the app is not installed;
+* Show a message if none of the conditions are met ('please access this from a mobile device')
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In the case of this small proof-of-concept, both Loader and Generator are sitting right next to each other, but in a more production-like environment, you'd expect them to be in completely different parts of your application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### The Mobile App
 
-### Code Splitting
+Finally, your mobile app. The Loader launches it via a special URL for each OS, and any parameters you want to send it are embedded in this URL. The app itself needs to be able to get these parameters and start your intended action based on them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Also, you need to have them published in order to have functioning redirection to the app stores.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In this example, we are deep-linking into the mobile **Instagram** app, passing it a username so the app opens directly into that profile.
