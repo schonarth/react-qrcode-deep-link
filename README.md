@@ -16,7 +16,7 @@ This contraption is comprised of the following elements:
 
 ### The QR Code Generator
 
-A QR code is essentially a barcode on steroids. Whereas barcodes could only represent numbers and letters, QR codes can store any arbitrarily long and complex string of text as needed. It's also error-resistant with redundancy included, so damaged or partially covered up codes can usually be read successfully.
+A QR code is essentially a barcode on steroids. Whereas barcodes could only represent numbers and letters, QR codes can store long (up to ~7k chars) and complex strings of text as needed. It's also error-resistant with redundancy included, so damaged or partially covered up codes can usually be read successfully.
 
 QR codes are most often used for URLs, but you can use them for pretty much anything.
 
