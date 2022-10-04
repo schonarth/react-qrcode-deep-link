@@ -19,7 +19,7 @@ const App = () => {
     (!!query && <Loader username={query} />) || (
       <Generator
         protocol={protocol}
-        host={host}
+        host={process.env.REACT_APP_HOSTNAME || host}
         path={pathName}
         port={port}
         paramName={paramName}

@@ -9,9 +9,7 @@ const Loader = ({ username }) => {
       window.location.replace(url);
     } else if (isIOS) {
       console.log('isIOS');
-      window.location.replace(
-        `instagram://user?${username}=nationalportraitgallery`
-      );
+      window.location.replace(`instagram://user?username=${username}`);
 
       setTimeout(() => {
         window.location.replace(
